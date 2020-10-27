@@ -1,0 +1,366 @@
+body {
+    margin:0px;
+    /* prevent from scroll down refresh */
+    overflow-y: hidden;
+    touch-action: none;
+}
+
+label{
+    position: absolute;
+}
+
+form{
+    margin:0px;
+}
+
+input{
+    outline: none;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgba(0, 0, 0, 0.4);
+}
+/*remove yellow background as autofill 
+or simply disable autofill in input attr */
+input:-webkit-autofill {
+    box-shadow: 0px 0px 0px white inset;
+}
+
+
+
+#mapid{
+    position: absolute;
+    top: 0px;
+    height: calc(100% - 50px);
+    width: 100%;
+    z-index: 0;
+}
+
+/* remove leaflet, googlemap right bottom label */
+.gmnoprint,.leaflet-control-attribution{
+    display: none;
+}
+
+.extra-marker i {
+    margin-top: 12px;
+    font-size: 10px;
+}
+
+.search-overlay{
+    position: absolute;
+    height:  100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.08);
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.icon-rotate{
+    animation: spin 4s ease-in-out infinite;
+}
+@keyframes spin{
+    0% {
+        transform: rotate(-45deg) ;
+    }
+    100% {
+        transform: rotate(315deg);
+    }
+}
+
+#search{
+    position: relative; 
+    top: 10px;
+    width: 90%;
+    /* margin auto only work for relative position */
+    margin: auto; 
+    height: 50px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.search-icon{
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: dimgray;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.search-status{
+    position: absolute;
+    height: 40px;
+    width: 80%;
+    bottom: 60px;
+    /* horizontal align */
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    
+    transition: 1s;
+    background: rgba(255, 51, 51,0.8);
+    border-radius: 50px;	
+    color:white;
+    text-align: center;
+    line-height: 40px;
+    z-index: 3;
+}
+
+
+
+#search-id{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 0 0 50;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 0px;
+    box-shadow: 1.5px 1.5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.widget-wrapper{
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+    z-index: 1;
+}
+
+.widget{
+    display: block;
+    position: relative;
+    background: white;
+    height: 50px;
+    width: 50px;
+    margin: 15 10;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+    color: dimgray;
+    border-radius: 50%;
+    box-shadow: 1.5px 1.5px 0.5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* Member Class */
+
+.member{
+    position: relative;
+    display: inline-block;
+}
+
+.sticky{
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tool-wrapper{
+    position: absolute;
+    top: 0px;
+    height: calc(100% - 20px);
+    width: 100%;
+    display: flex;
+    /* align its child */
+    align-items: center;
+}
+
+.tool{
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.display{
+    position: relative;
+    top:3px;
+    text-align: center;
+    line-height: 23px;
+    height: 23px;
+    font-size: 14px;
+    color: dimgray;
+    
+    /* overflow control */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.online{
+    height: 10px;
+    width: 10px;
+    top:0px;
+    left: 0px;
+    position: absolute;
+    background-color: springgreen;
+    border-radius: 50%;
+}
+
+
+
+.dragger{
+    position: absolute;
+    overflow-y: hidden;
+    top: calc(100% - 50px);
+    width: 100%;
+    z-index: 2;
+}
+
+.panel{
+    background-color: white ; 
+    box-shadow: 0px -2px 10px rgba(0,0,0,0.2); 
+}
+
+
+#navigator{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color:lightslategray
+}
+
+.nav-icon-wrapper{
+    flex:1;
+    text-align: center;
+}
+
+.nav-icon{
+    height: 100%;
+    width: 80px;
+    color: black;
+    text-decoration: none;
+    font-size: 26px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.group-wrapper {
+    height: calc(100% - 50px) ;
+    overflow-y: auto;
+}
+
+.group{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
+    grid-gap: 16px;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+
+.dialog{
+    position: absolute;
+    top:0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 2;
+    background-color: white;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-wrapper{
+    margin: 0 10 10 10;
+}
+.dialog-content{
+    padding: 0 10;
+}
+
+.dialog-topbar{
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+.topbar-account{
+    padding-left: 10px;
+}
+
+.topbar-sticky{
+    height: 55px;
+    border-radius: 50%;   
+}
+
+.topbar-widget-wrapper{
+    /* magically align right the child of flex item */
+    margin-left: auto;
+    font-size: 22px;
+    color: darkgray;
+    white-space: nowrap;
+}
+
+
+.private-info{
+    padding-bottom: 10px;
+}
+
+
+.topbar-widget{
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.displayname{
+    display: inline-block;
+    position: relative;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.username{
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+}
+
+.identity{
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+.fitness{
+    padding-right: 5px;
+}
+
+.about-you{
+    padding-bottom: 10px;
+    white-space: pre-line;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.gallery{
+    position: relative;
+    height: fit-content;
+}
+
+.gallery-img{
+    width: 100%;
+    height: auto;
+    margin: -15% 0;
+}
+
+.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.6;
+}
+

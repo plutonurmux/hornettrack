@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>HornetTrack</title>
+	<meta name="viewport" content="user-scalable=no ,initial-scale=1.0">
+	<!-- Google Tag Manager -->
+	<script>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PR2963M');
+	</script>
+	<!-- Google Analytic -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-105405094-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Leaflet & googlemap plugin -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA45oGRQyIZtUGDzn69pDKmI_GoDGJhvoA" async defer></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js" async defer></script> -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+	<script src='https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js'></script>
+
+	<!-- Leaflet Marker -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static "/extra-markers/css/leaflet.extra-markers.min.css" %}">
+	<script src="{% static "/extra-markers/js/leaflet.extra-markers.min.js" %}"></script>
+
+	<!-- Jquery & Fontawsome -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<!-- Swipe-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+	<!-- Main site -->
+	<link rel="stylesheet" href="{% static "/css/legacy-index.css" %}">
+</head>
+
+<body>
+	
+  
+	<div id="map-root"></div>
+	<div id='panel-root'></div>
+	<div id='dialog-root'></div>
+	{% csrf_token %}
+
+	{% load render_bundle from webpack_loader %}
+	{% render_bundle 'legacy' %}
+	{% render_bundle 'vendors~legacy' %}
+	{% render_bundle 'vendors~index~legacy' %}
+
+
+ </body>
+</html>
